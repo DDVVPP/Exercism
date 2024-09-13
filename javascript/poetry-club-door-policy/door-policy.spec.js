@@ -11,7 +11,7 @@ const recite = (poem, responseFn) => {
   return poem.map((line) => responseFn(line));
 };
 
-xdescribe("front door response", () => {
+describe("front door response", () => {
   test("should take the first characters from SUMMER", () => {
     // Summer, by John Albert Caballero
     const SUMMER = [
@@ -56,7 +56,7 @@ xdescribe("front door response", () => {
   });
 });
 
-xdescribe("front door password", () => {
+describe("front door password", () => {
   test("should capitalize SUMMER", () => {
     expect(frontDoorPassword("SUMMER")).toBe("Summer");
   });
@@ -70,7 +70,7 @@ xdescribe("front door password", () => {
   });
 });
 
-xdescribe("back door response", () => {
+describe("back door response", () => {
   test("should take the last letter character of each line of CODE_WORK", () => {
     // Code Work, by Derk-Jan Karrenbeld
     const CODE_WORK = [
