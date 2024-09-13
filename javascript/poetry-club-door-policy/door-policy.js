@@ -39,8 +39,8 @@ export function frontDoorResponse(line) {
  */
 export function frontDoorPassword(word) {
   //capitalize first later, lower case remaining letter, combine the two
-  const firstLetterCapitalized = word.slice(0, 1).toUpperCase();
-  const remainingWordLowerCased = word.slice(1, word.length).toLowerCase();
+  const firstLetterCapitalized = word[0].toUpperCase();
+  const remainingWordLowerCased = word.slice(1).toLowerCase();
   return `${firstLetterCapitalized}${remainingWordLowerCased}`;
 }
 
@@ -53,8 +53,7 @@ export function frontDoorPassword(word) {
  */
 export function backDoorResponse(line) {
   const trimmedLine = line.trim();
-  const lastIndexOfTrimmedLine = trimmedLine.length - 1;
-  return trimmedLine[lastIndexOfTrimmedLine];
+  return trimmedLine.slice(-1);
 }
 
 /**
