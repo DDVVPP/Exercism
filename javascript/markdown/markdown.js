@@ -5,6 +5,9 @@ function wrap(text, tag) {
 function parser(markdown, delimiter, tag) {
   const pattern = new RegExp(`${delimiter}(.+)${delimiter}`);
   const replacement = `<${tag}>$1</${tag}>`;
+  console.log("pattern", pattern);
+  console.log("replacement", replacement);
+  console.log("replace...", markdown.replace(pattern, replacement));
   return markdown.replace(pattern, replacement);
 }
 
