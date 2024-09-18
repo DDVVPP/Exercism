@@ -33,9 +33,17 @@ export function birdsInWeek(birdsPerDay, week) {
 
   const startIdx = (week - 1) * 7;
   const endIdx = startIdx + 7;
+
   const birdsInSpecificWeek = birdsPerDay.slice(startIdx, endIdx);
 
   return totalBirdCount(birdsInSpecificWeek);
+
+  //ALTERNATE SOLUTION:
+  // let sum = 0;
+  // for (let i = startIdx; i < endIdx; i++) {
+  //   sum += birdsPerDay[i];
+  // }
+  // return sum;
 }
 
 /**
@@ -56,4 +64,10 @@ export function fixBirdCountLog(birdsPerDay) {
     }
   }
   return birdsPerDay;
+
+  //ALTERNATE SOLUTION:
+  // for (let i = 0; i < birdsPerDay.length; i += 2) {
+  //   birdsPerDay[i] += 1;
+  // }
+  // return birdsPerDay;
 }
