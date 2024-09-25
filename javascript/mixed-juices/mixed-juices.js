@@ -11,7 +11,20 @@
  * @returns {number} time in minutes
  */
 export function timeToMixJuice(name) {
-  throw new Error('Please implement the timeToMixJuice function');
+  switch (name) {
+    case "Pure Strawberry Joy":
+      return 0.5;
+    case "Energizer":
+      return 1.5;
+    case "Green Garden":
+      return 1.5;
+    case "Tropical Island":
+      return 3;
+    case "All or Nothing":
+      return 5;
+    default:
+      return 2.5;
+  }
 }
 
 /**
@@ -23,7 +36,41 @@ export function timeToMixJuice(name) {
  * @returns {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  throw new Error('Please implement the limesToCut function');
+  // small: 6, medium: 8, large: 10
+  // if item 1 wedges is >= wedgesNeeded, return 1
+  // if item 1 wedges + item 2 wedges is >= wedgesNeeded, return 2
+
+  let currTotalWedges = 0;
+
+  if (wedgesNeeded === 0) {
+    return 0;
+  }
+
+  for (let i = 0; i < limes.length; i++) {
+    if (limes[i] === "small") {
+      currTotalWedges += 6;
+
+      if (currTotalWedges >= wedgesNeeded) {
+        return i + 1;
+      }
+    } else if (limes[i] === "medium") {
+      currTotalWedges += 8;
+
+      if (currTotalWedges >= wedgesNeeded) {
+        return i + 1;
+      }
+    } else if (limes[i] === "large") {
+      currTotalWedges += 10;
+
+      if (currTotalWedges >= wedgesNeeded) {
+        return i + 1;
+      }
+    }
+  }
+
+  if (currTotalWedges < wedgesNeeded) {
+    return limes.length;
+  }
 }
 
 /**
@@ -34,5 +81,18 @@ export function limesToCut(wedgesNeeded, limes) {
  * @returns {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  throw new Error('Please implement the remainingOrders function');
+  // use timeToMixJuice function to return time for each juice
+  let currTotalTime = 0;
+
+  for (let i = 0; i < orders.length; i++) {
+    currTotalTime += timeToMixJuice(orders[i]);
+
+    if (currTotalTime >= timeLeft) {
+      return orders.slice(i + 1);
+    }
+  }
+
+  if (timeLeft >= currTotalTime) {
+    return [];
+  }
 }
