@@ -32,15 +32,16 @@ export function revokeTicket(visitor) {
  * @returns {string} ticket status
  */
 export function ticketStatus(tickets, ticketId) {
-  for (let id in tickets) {
-    if (ticketId === id && tickets[id] !== null) {
-      return `sold to ${tickets[id]}`;
-    } else if (ticketId === id && tickets[id] === null) {
-      return "not sold";
-    }
-  }
+  const name = tickets[ticketId];
 
-  return "unknown ticket id";
+  switch (name) {
+    case undefined:
+      return "unknown ticket id";
+    case null:
+      return "not sold";
+    default:
+      return `sold to ${name}`;
+  }
 }
 
 /**
@@ -52,14 +53,15 @@ export function ticketStatus(tickets, ticketId) {
  * @returns {string} ticket status
  */
 export function simpleTicketStatus(tickets, ticketId) {
-  for (let id in tickets) {
-    if (ticketId === id && tickets[id] !== null) {
-      return tickets[id];
-    } else if (ticketId === id && tickets[id] === null) {
+  const name = tickets[ticketId];
+
+  switch (name) {
+    case undefined:
+    case null:
       return "invalid ticket !!!";
-    }
+    default:
+      return name;
   }
-  return "invalid ticket !!!";
 }
 
 /**
