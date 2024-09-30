@@ -18,8 +18,7 @@ export function twoSum(array1, array2) {
  * @returns {boolean} whether the number is a palindrome or not
  */
 export function luckyNumber(value) {
-  const reversedString = String(value).split("").reverse().join("");
-  return value === Number(reversedString);
+  return String(value) === [...String(value)].reverse().join("");
 }
 
 /**
@@ -31,11 +30,9 @@ export function luckyNumber(value) {
  */
 export function errorMessage(input) {
   switch (true) {
-    case input === "":
-    case input === null:
-    case input === undefined:
+    case !input:
       return "Required field";
-    case Number.isNaN(Number(input)):
+    case isNaN(Number(input)):
     case Number(input) === 0:
       return "Must be a number besides 0";
     default:
