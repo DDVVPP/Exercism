@@ -6,7 +6,6 @@
  * you defined so they are available for the tests.
  */
 
-//TEST 1
 export function Size(width = 80, height = 60) {
   this.width = width;
   this.height = height;
@@ -17,7 +16,6 @@ Size.prototype.resize = function (newWidth, newHeight) {
   this.height = newHeight;
 };
 
-//TEST 2
 export function Position(x = 0, y = 0) {
   this.x = x;
   this.y = y;
@@ -28,7 +26,6 @@ Position.prototype.move = function (newX, newY) {
   this.y = newY;
 };
 
-//TEST 3
 export class ProgramWindow {
   constructor() {
     this.screenSize = new Size(800, 600);
