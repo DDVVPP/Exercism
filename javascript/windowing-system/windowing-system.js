@@ -60,10 +60,9 @@ export class ProgramWindow {
 
     this.position.move(newX, newY);
   }
-
-  changeWindow(newProgramWindow) {
-    newProgramWindow.resize({ width: 400, height: 300 });
-    newProgramWindow.move({ x: 100, y: 150 });
-    return newProgramWindow;
-  }
+}
+export function changeWindow(newProgramWindow) {
+  newProgramWindow.resize({ width: 400, height: 300 });
+  newProgramWindow.move({ x: 100, y: 150 });
+  return newProgramWindow;
 }
